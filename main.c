@@ -10,6 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//exit code 10 : failing fork
+//exit code 21 : failing dup or dup2
+//exit code 20 : failing pipe
+//exit code 13 : failing execve
+//exit code 11 : cd without correct arguments
+//exit code 12 : chdir failed
+
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -210,6 +217,6 @@ void	ft_execute(char *argv[], char *envp[])
 		write(2, ERR5, ft_strlen(ERR5));
 		write(2, argv[0], ft_strlen(argv[0]));
 		write(2, "\n", 1);
-		exit (12);
+		exit (13);
 	}
 }
